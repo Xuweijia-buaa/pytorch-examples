@@ -45,4 +45,4 @@ class Corpus(object):
                 idss.append(torch.tensor(ids).type(torch.int64))
             ids = torch.cat(idss)
 
-        return ids
+        return ids  # 一个长句子

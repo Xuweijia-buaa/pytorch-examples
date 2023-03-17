@@ -56,7 +56,7 @@ class RNNModel(nn.Module):
     def init_hidden(self, bsz):
         weight = next(self.parameters())
         if self.rnn_type == 'LSTM':
-            return (weight.new_zeros(self.nlayers, bsz, self.nhid),
+            return (weight.new_zeros(self.nlayers, bsz, self.nhid),  # 每层初始h  (N-layer, B, h)  全0
                     weight.new_zeros(self.nlayers, bsz, self.nhid))
         else:
             return weight.new_zeros(self.nlayers, bsz, self.nhid)
